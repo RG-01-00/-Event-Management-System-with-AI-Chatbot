@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Management System</title>
+    <link rel="stylesheet" href="/blog/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1> Event Management System </h1>
+      <nav>
+        <a href="#events">Events</a>
+        <a href="#register">Register</a>
+        <a href="#dashboard">Dashboard</a>
+      </nav>
+
+      <button id="darkModeToggle">Dark Mode</button>
+    </header>
+    <div class="search-container">
+      <label class="search-label">Search Bar</label>
+      <input type="text" id="searchInput" placeholder="Search..." />
+    </div>
+
+    <h2>Upcoming Events</h2>
+
+    <div class="event-container">
+      <div class="event">
+        <img src="/blog/images/ai.jpeg" alt="AI Innovation Summit Image" />
+        <h3>AI Innovation Summit</h3>
+        <p>Date: June 10, 2025</p>
+        <p>Location: Paris, France</p>
+        <a href="/blog/event.html?id=1">See Details</a>
+      </div>
+      <div class="event">
+        <img src="/blog/images/java.jpeg" alt="JavaScript Global Meetup Image" />
+        <h3>JavaScript Global Meetup</h3>
+        <p>Date: July 20, 2025</p>
+        <p>Location: Berlin, Germany</p>
+        <a href="/blog/event.html?id=2">See Details</a>
+      </div>
+      <div class="event">
+        <img src="/blog/images/fronted.jpeg" alt="Frontend Creators Conference Image" />
+        <h3>Frontend Creators Conference</h3>
+        <p>Date: August 5, 2025</p>
+        <p>Location: Tokyo, Japan</p>
+        <a href="/blog/event.html?id=3">See Details</a>
+      </div>
+      <div class="event">
+        <img src="/blog/images/cyber.jpeg" alt="Cybersecurity Bootcamp Image" />
+        <h3>Cybersecurity Bootcamp</h3>
+        <p>Date: September 12, 2025</p>
+        <p>Location: New York, USA</p>
+        <a href="/blog/event.html?id=4">See Details</a>
+      </div>
+      <div class="event">
+        <img src="/blog/images/motion.jpeg" alt="Data Visualization Expo Image" />
+        <h3>Data Visualization Expo</h3>
+        <p>Date: October 2, 2025</p>
+        <p>Location: London, UK</p>
+        <a href="/blog/event.html?id=5">See Details</a>
+      </div>
+
+      <div class="event">
+        <img src="/blog/images/startup.jpeg" alt="Startup Launch Weekend Image" />
+        <h3>Startup Launch Weekend</h3>
+        <p>Date: November 18, 2025</p>
+        <p>Location: San Francisco, USA</p>
+        <a href="/blog/event.html?id=6">See Details</a>
+      </div>
+    </div>
+
+    <h2>Register for an Event</h2>
+    <section id="register" class="container register">
+      <form>
+        <label>Name: <input type="text" name="name" required /></label><br />
+        <label>Email: <input type="email" name="email" required /></label><br />
+        <label
+          >Select Event:
+          <select name="event">
+            <option>AI Innovation Summit</option>
+            <option>JavaScript Global Meetup</option>
+            <option>Frontend Creators Conference</option>
+            <option>Cybersecurity Bootcamp</option>
+            <option>Data Visualization Expo</option>
+            <option>Startup Launch Weekend</option>
+          </select> </label
+        ><br />
+        <button type="submit">Register</button>
+      </form>
+    </section>
+
+    <h2>Organizer Dashboard - Add New Event</h2>
+    <section id="dashboard" class="container dashboard">
+      <form>
+        <label
+          >Event Name: <input type="text" name="event_name" required /></label
+        ><br />
+        <label>Date: <input type="date" name="event_date" required /></label
+        ><br />
+        <label>Location: <input type="text" name="location" required /></label
+        ><br />
+        <label>Description: <textarea name="description"></textarea></label
+        ><br />
+        <button type="submit">Add Event</button>
+      </form>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Event Management System. All Rights Reserved.</p>
+    </footer>
+    <script src="/blog/script.js"></script>
+    <a class="chatbot-icon" title="Chat with us" onclick="toggleChatbox()"
+      >💬</a
+    >
+
+    <div class="chatbox" id="chatbox">
+      <div class="chatbox-header">
+        Chatbot
+        <button class="close-chat" onclick="toggleChatbox()" aria-label="Close chat">
+          <span class="close-icon">×</span>
+        </button>
+      </div>
+      <div class="chatbox-messages" id="chatbox-messages">
+        <p><strong>Bot:</strong> Hello! How can I help you today?</p>
+      </div>
+      <div class="chatbox-input">
+        <input type="text" id="userInput" placeholder="Type your message..." />
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+    
+    <script src="/blog/chatbot.js"></script>
+  </body>
+</html>

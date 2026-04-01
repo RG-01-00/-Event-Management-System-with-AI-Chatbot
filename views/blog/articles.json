@@ -1,0 +1,63 @@
+[
+  {
+    "id": 1,
+    "title": "AI Innovation Summit",
+    "date": "2025-06-10",
+    "location": "Paris, France",
+    "snippet": "Join leading minds in AI to discuss the future of machine learning...",
+    "content": "<p>The AI Innovation Summit brings together researchers, developers, and tech leaders to explore breakthroughs in machine learning, ethics, and automation.</p><p><strong>Key Highlights:</strong></p><ul><li>Keynote by Dr. Sarah Chen on generative AI advancements</li><li>Workshops on implementing ethical AI frameworks</li><li>Panel discussion: 'The Future of Human-AI Collaboration'</li><li>Hands-on sessions with cutting-edge ML tools</li><li>Networking with 500+ AI professionals</li></ul><p><strong>Who Should Attend:</strong> AI researchers, data scientists, product managers, and tech executives interested in responsible AI development.</p>",
+    "tags": ["AI", "Conference", "Innovation"],
+    "image": "/blog/images/ai.jpeg"
+  },
+  {
+    "id": 2,
+    "title": "JavaScript Global Meetup",
+    "date": "2025-07-20",
+    "location": "Berlin, Germany",
+    "snippet": "Celebrate JavaScript with developers from around the globe...",
+    "content": "<p>From frameworks to browser quirks, this meetup dives deep into all things JavaScript. Workshops, talks, and networking for all levels.</p><p><strong>Featured Topics:</strong></p><ul><li>Deep dive into Web Components and Shadow DOM</li><li>Performance optimization techniques</li><li>State management in 2025: What's new?</li><li>Interactive coding challenges with prizes</li><li>Framework-agnostic component design</li></ul><p><strong>Special Event:</strong> Live 'JavaScript Jeopardy' with framework creators.</p><p><strong>Skill Level:</strong> Sessions available for beginners through advanced developers.</p>",
+    "tags": ["JavaScript", "Web", "Meetup"],
+    "image": "/blog/images/java.jpeg"
+  },
+  {
+    "id": 3,
+    "title": "Frontend Creators Conference",
+    "date": "2025-08-05",
+    "location": "Tokyo, Japan",
+    "snippet": "Explore UI/UX design, accessibility, and the latest in frontend tech...",
+    "content": "<p>A design-forward conference focused on user experience, design systems, and frontend performance. Includes hands-on workshops and live design challenges.</p><p><strong>Conference Tracks:</strong></p><ul><li>Design Systems: Scaling beautiful UIs</li><li>Web Accessibility: Beyond compliance</li><li>CSS Masterclass: New features in 2025</li><li>Animation and Microinteractions</li><li>Performance Optimization</li></ul><p><strong>Unique Experiences:</strong></p><ul><li>Design critique sessions with industry leaders</li><li>Live 'Design in 60 Minutes' challenges</li><li>Exclusive tour of Tokyo's digital art museums</li></ul>",
+    "tags": ["Design", "Frontend", "UX"],
+    "image": "/blog/images/fronted.jpeg"
+  },
+  {
+    "id": 4,
+    "title": "Cybersecurity Bootcamp",
+    "date": "2025-09-12",
+    "location": "New York, USA",
+    "snippet": "Hands-on training to protect apps and data in the digital world...",
+    "content": "<p>This 3-day intensive bootcamp teaches you the essentials of app security, threat modeling, and ethical hacking techniques through real-world scenarios.</p><p><strong>Curriculum Includes:</strong></p><ul><li>OWASP Top 10 vulnerabilities (2025 edition)</li><li>Secure coding practices</li><li>Penetration testing fundamentals</li><li>Incident response simulation</li><li>Cloud security best practices</li></ul><p><strong>Hands-On Labs:</strong></p><ul><li>Capture-the-flag competition</li><li>Real-world breach simulation</li><li>Secure code review workshop</li></ul><p><strong>Certification:</strong> Participants receive a Certificate of Completion and 24 CPE credits.</p>",
+    "tags": ["Security", "Bootcamp", "Tech"],
+     "image": "/blog/images/cyber.jpeg"
+  },
+  {
+    "id": 5,
+    "title": "Data Visualization Expo",
+    "date": "2025-10-02",
+    "location": "London, UK",
+    "snippet": "Discover the power of visual storytelling with data...",
+    "content": "<p>Join data scientists and designers as they showcase tools and techniques to turn raw numbers into engaging and impactful visuals using D3.js and more.</p><p><strong>Featured Exhibits:</strong></p><ul><li>Interactive visualization gallery</li><li>Live data art installations</li><li>AR/VR data experiences</li></ul><p><strong>Workshop Series:</strong></p><ul><li>Mastering D3.js for complex datasets</li><li>Design principles for effective charts</li><li>Animating data stories</li><li>Accessibility in data visualization</li></ul><p><strong>Keynote:</strong> 'The Future of Data Communication' by NYT Graphics Team lead.</p>",
+    "tags": ["Data", "Visualization", "Expo"],
+     "image": "/blog/images/motion.jpeg"
+  },
+  {
+    "id": 6,
+    "title": "Startup Launch Weekend",
+    "date": "2025-11-18",
+    "location": "San Francisco, USA",
+    "snippet": "Pitch, build, and launch a startup idea in just 48 hours...",
+    "content": "<p>A weekend-long event where developers, designers, and entrepreneurs form teams and build products. Includes mentorship, judging panels, and prizes.</p><p><strong>Event Flow:</strong></p><ul><li>Friday: Idea pitching and team formation</li><li>Saturday: Intensive building with mentor support</li><li>Sunday: Demos and judging</li></ul><p><strong>Resources Provided:</strong></p><ul><li>API access from major tech platforms</li><li>Design and legal office hours</li><li>$10,000 in cloud credits</li></ul><p><strong>Judging Criteria:</strong></p><ul><li>Innovation</li><li>Technical implementation</li><li>Business viability</li><li>User experience</li></ul><p><strong>Grand Prize:</strong> $25,000 seed funding and incubator placement.</p>",
+    "tags": ["Startup", "Hackathon", "Innovation"],
+     "image": "/blog/images/startup.jpeg"
+
+  }
+]

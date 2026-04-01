@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <title>Event Details</title>
+    <link rel="stylesheet" href="/blog/style_event.css" />
+</head>
+
+<body>
+    <header>
+        <a href="/" class="back-arrow">⬅️</a>
+        <h1>🎉 Event Details</h1>
+        <button id="darkModeToggle" class="theme-toggle"></button>
+    </header>
+
+    <main class="event-container">
+        <div class="top-row">
+            <section class="event-info">
+                <div class="bubble">
+                    <h2 id="event-title">Event Title</h2>
+                </div>
+                <div class="bubble">
+                    <p id="event-description">Event Description</p>
+                </div>
+                <div class="bubble">
+                    <p><strong>Date:</strong> <span id="event-date"></span></p>
+                </div>
+                <div class="bubble">
+                    <p><strong>Location:</strong> <span id="event-location"></span></p>
+                </div>
+            </section>
+
+            <section class="comment-section">
+                <div class="comment-box">
+                    <h3>Leave a Comment</h3>
+                    <form id="comment-form">
+                        <label for="comment">Your Comment:</label>
+                        <textarea name="comment" placeholder="Write something nice..." required></textarea>
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+                <div id="comment-results" class="comment-result-box"></div>
+            </section>
+        </div>
+
+        <section class="recommendations-section">
+            <h2>You might also like:</h2>
+            <div class="recommendations-container" id="recommendations-container"></div>
+        </section>
+    </main>
+
+    <!-- Chatbot UI -->
+    <a class="chatbot-icon" title="Chat with us" onclick="toggleChatbox()">💬</a>
+    <div class="chatbox" id="chatbox">
+        <div class="chatbox-header">
+            Chatbot
+            <button class="close-chat" onclick="toggleChatbox()" aria-label="Close chat">
+                <span class="close-icon">×</span>
+            </button>
+        </div>
+        <div class="chatbox-messages" id="chatbox-messages">
+            <p><strong>Bot:</strong> Hello! How can I help you today?</p>
+        </div>
+        <div class="chatbox-input">
+            <input type="text" id="userInput" placeholder="Type your message..." />
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="/blog/theme-manager.js"></script>
+    <script src="/blog/chatbot.js"></script>
+    
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const eventId = parseInt(params.get("id"));
+        
+        function findSimilarEvents(currentEvent, allEvents, count = 3) {
+            const otherEvents = allEvents.filter(event => event.id !== currentEvent.id);
+            
+            const scoredEvents = otherEvents.map(event => {
+                let score = 0;
+                
+                const currentTitleWords = currentEvent.title.toLowerCase().split(/\s+/);
+                const otherTitleWords = event.title.toLowerCase().split(/\s+/);
+                
+                score += currentTitleWords.filter(word => 
+                    otherTitleWords.includes(word)
+                ).length;
+                
+                if (currentEvent.category && event.category && 
+                    currentEvent.category === event.category) {
+                    score += 2;
+                }
+                
+                return { ...event, score };
+            });
+            
+            return scoredEvents.sort((a, b) => b.score - a.score).slice(0, count);
+        }
+        
+        function displayRecommendations(recommendations) {
+            const container = document.getElementById('recommendations-container');
+            
+            if (!recommendations || recommendations.length === 0) {
+                container.innerHTML = '<p>No recommendations available at this time.</p>';
+                return;
+            }
+            
+            container.innerHTML = '';
+            
+            recommendations.forEach(event => {
+                const card = document.createElement('div');
+                card.className = 'recommendation-card';
+                card.innerHTML = `
+                    <h3>${event.title}</h3>
+                    <p>${event.date || 'Date not specified'}</p>
+                    <p>${event.location || 'Location not specified'}</p>
+                `;
+                
+                card.addEventListener('click', () => {
+                    window.location.href = `/blog/event-details.html?id=${event.id}`;
+                });
+                
+                container.appendChild(card);
+            });
+        }
+
+        // Fetch event data
+        fetch("/api/articles")
+            .then((res) => res.json())
+            .then((events) => {
+                const event = events.find((e) => e.id === eventId);
+                if (!event) {
+                    document.body.innerHTML = "<p>Event not found</p>";
+                    return;
+                }
+
+                document.getElementById("event-title").textContent = event.title;
+                document.getElementById("event-description").innerHTML = event.content;
+                document.getElementById("event-date").textContent =
+                    event.date || "Date not available";
+                document.getElementById("event-location").textContent =
+                    event.location || "Location not specified";
+
+                if (event.image) {
+                    document.querySelector('header').style.backgroundImage = `url('${event.image}')`;
+                }
+
+                const similarEvents = findSimilarEvents(event, events);
+                displayRecommendations(similarEvents);
+            });
+
+        // Comment form handling
+        document.getElementById("comment-form").addEventListener("submit", (e) => {
+            e.preventDefault();
+            const comment = e.target.comment.value;
+        
+            fetch("/api/sentiment", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ text: comment }),
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    const sentimentScore = data.score;
+                    const sentimentLabel =
+                        sentimentScore > 0
+                            ? "Positive"
+                            : sentimentScore < 0
+                            ? "Negative"
+                            : "Neutral";
+        
+                    const resultDiv = document.createElement("div");
+                    resultDiv.classList.add("sentiment-result");
+        
+                    resultDiv.innerHTML = `
+                        <p><strong>Sentiment:</strong> ${sentimentLabel}</p>
+                    `;
+        
+                    const resultsContainer = document.getElementById("comment-results");
+                    resultsContainer.innerHTML = "";
+                    resultsContainer.appendChild(resultDiv);
+        
+                    e.target.reset();
+                })
+                .catch((err) => {
+                    console.error("Error in sentiment analysis:", err);
+                });
+        });
+    </script>
+</body>
+</html>

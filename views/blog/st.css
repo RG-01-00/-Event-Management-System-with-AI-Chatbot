@@ -1,0 +1,70 @@
+body{
+   background-image: url('image.jpg');
+    background-size: cover;
+   /* background: linear-gradient(to right, rgb(115, 115, 184),rgb(122, 13, 128));*/
+}
+
+
+
+h1{
+    color: var(--primary-color);
+    font-size: 30px;
+}
+.htp{  /*targets a specefique class*/
+    color: blueviolet;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 32px;
+    font-weight: bold;
+    line-height:0;
+    text-align: center;
+
+}
+header{
+    color: brown;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+}
+h1, h2, p { 
+    font-family: Arial, sans-serif; 
+} 
+*{ /* doesnt target <table>, <div> , <header>*/
+   text-align: center; 
+}
+table{
+    margin: auto;        
+    width: 40%;   
+    padding: 20px;         
+}
+div{
+  /*  border: 10px solid rgb(209, 158, 211);*/
+   border: 10px dashed rgb(122, 12, 12);
+    /* border-radius: 10px  ;*/
+}
+   .body {
+      font-size: 18px;
+      }
+
+  @media (max-width: 600px) {
+   .body {
+      font-size: 16px;
+    }
+
+    .container{
+        flex-direction: column;
+    }
+}
+
+:root{
+  --primary-color: #34db93;
+  --secondary-color: #2ecc71;
+  --font-size-large: 24px;
+}
+.box1{
+
+    
+    width: 100px;
+    height: 100px;
+    aspect-ratio: 16 / 9;
+    background: black;
+}
