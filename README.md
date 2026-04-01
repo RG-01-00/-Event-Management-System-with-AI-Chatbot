@@ -41,18 +41,19 @@ A modern, interactive web application for discovering, registering, and managing
 ## Prerequisites
 
 Before you begin, ensure you have nodejs ans npm installed:
-for windows:
+### for windows:
 1. Download Node.js from their official website: https://nodejs.org/
 2. Run the installer
 3. **Important:** During installation, make sure "Add to PATH" is checked (it is by default)
 4. Restart your computer
 5. The PATH is automatically configured by the installer 
-arch linux:
+### arch linux:
 -run the command sudo pacman -S nodejs npm
-for kali :
+### for kali :
 -sudo apt update
 -sudo apt install nodejs npm
-run to confirm that u have the latest version of both
+
+### run to confirm that u have the latest version of both
 -node --version
 -npm --version
 ### use this command to run the web
